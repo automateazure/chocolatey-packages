@@ -8,7 +8,7 @@ function CreateStream {
   #region Get VMware Horizon Client for Windows Urls
   $productBinariesUrl = "https://my.vmware.com/channel/public/api/v1.0/products/getRelatedDLGList?locale=en_US&category=desktop_end_user_computing&product=vmware_horizon_clients&version=$($productVersion)&dlgType=PRODUCT_BINARY"
 
-  $jsonProduct = Invoke-WebRequest -Uri $productBinariesUrl | ConvertFrom-Json
+  $jsonProduct = Invoke-WebRequest -UseBasicParsing -Uri $productBinariesUrl | ConvertFrom-Json
 
   $re = '*_WIN_*'
   $product = $jsonProduct.dlgEditionsLists.dlgList | Where-Object code -like $re | Select-Object -First 1

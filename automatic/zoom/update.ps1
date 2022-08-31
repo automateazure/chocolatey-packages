@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 import-module au
 
-$download_page_url = 'https://zoom.us/download#client_4meeting'
+$download_page_url = 'https://zoom.us/rest/download?os=win'
 $url_part1 = 'https://cdn.zoom.us/prod/'
 
 function global:au_SearchReplace {
@@ -20,12 +20,11 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
-    $homepage_content = Invoke-WebRequest -UseBasicParsing -Uri $download_page_url
+    $response = Invoke-WebRequest -UseBasicParsing -Uri $download_page_url
+    $payload = ConvertFrom-Json $response
 
      # Get Version
-    $homepage_content -match 'Version \d+\.\d+\.\d (\(\d+\))'| Out-Null
-    $recodeversion = $matches[0] -replace "Version ", ""
-    $version = $recodeversion.Replace(' ', '').Replace(')', '').Replace('(','.')
+    $version = $payload.result.downloadVO.zoom.version
     $url32 = $url_part1 + $version + '/ZoomInstallerFull.msi'
     $url64 = $url_part1 + $version + '/x64/ZoomInstallerFull.msi'
 
