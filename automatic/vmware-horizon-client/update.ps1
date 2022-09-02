@@ -15,7 +15,7 @@ function CreateStream {
 
   $downloadFilesUrl = "https://my.vmware.com/channel/public/api/v1.0/dlg/details?locale=en_US&downloadGroup=$($product.code)&productId=$($product.productId)&rPId=$($product.releasePackageId)"
 
-  $jsonFile = Invoke-WebRequest -Uri $downloadFilesUrl | ConvertFrom-Json
+  $jsonFile = Invoke-WebRequest -UseBasicParsing -Uri $downloadFilesUrl | ConvertFrom-Json
 
   $Url32 = $jsonFile.downloadFiles.thirdPartyDownloadUrl
   $version = ($Url32).Split("-")[-2] + '.' + ($Url32).Split("-")[-1] -replace (".exe", "")
@@ -26,7 +26,7 @@ function CreateStream {
   #region Get Release Notes Url
   $dlgHeaderUrl = "https://my.vmware.com/channel/public/api/v1.0/products/getDLGHeader?locale=en_US&downloadGroup=$($product.code)&productId=$($product.productId)"
 
-  $jsonHeader = Invoke-WebRequest -Uri $dlgHeaderUrl | ConvertFrom-Json
+  $jsonHeader = Invoke-WebRequest -UseBasicParsing -Uri $dlgHeaderUrl | ConvertFrom-Json
 
   $ReleaseNotes = ($jsonHeader.dlg.documentation).Split(';|&') | Where-Object { $_ -match '.html' }
   #endregion
@@ -45,7 +45,7 @@ function global:au_GetLatest {
   $streams = @{}
 
   #region Get VMware Horizon Client for Windows Versions
-  $jsonProducts = Invoke-WebRequest -Uri $allProductsUrl | ConvertFrom-Json
+  $jsonProducts = Invoke-WebRequest -UseBasicParsing -Uri $allProductsUrl | ConvertFrom-Json
 
   $re = 'vmware_horizon_clients'
   $productVersion = ($jsonProducts.productCategoryList.productList.actions | Where-Object target -match $re | Select-Object -First 1 -ExpandProperty target).Split("/")[-1]
