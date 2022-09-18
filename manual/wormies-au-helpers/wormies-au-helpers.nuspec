@@ -4,7 +4,7 @@
     <metadata>
         <id>wormies-au-helpers</id>
         <title>Wormies AU Helpers</title>
-        <version>0.0.0</version>
+        <version>0.4.1</version>
         <authors>Kim J. Nordmo</authors>
         <owners>Kim J. Nordmo</owners>
         <summary>Wormies AU Helpers is a collection of scripts to help packaging using AU even easier.</summary>
