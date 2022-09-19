@@ -14,22 +14,28 @@ $Options = [ordered]@{
     PushAll       = $true                                   #Allow to push multiple packages at once
     PluginPath    = ''                                      #Path to user plugins
     IgnoreOn      = @(                                      #Error message parts to set the package ignore status
-      'Could not create SSL/TLS secure channel'
-      'Could not establish trust relationship'
-      'The operation has timed out'
-      'Internal Server Error'
-      'Service Temporarily Unavailable'
+    'Could not create SSL/TLS secure channel'
+    'Could not establish trust relationship'
+    'The operation has timed out'
+    'Internal Server Error'
+    'Service Temporarily Unavailable'
+    'The connection was closed unexpectedly.'
+    'package version already exists'
+    'already exists on a Simple OData Server'             # https://github.com/chocolatey/chocolatey.org/issues/613
+    'Conflict'
+    'A system shutdown has already been scheduled'
     )
     RepeatOn      = @(                                      #Error message parts on which to repeat package updater
-      'Could not create SSL/TLS secure channel'             # https://github.com/chocolatey/chocolatey-coreteampackages/issues/718
-      'Could not establish trust relationship'              # -||-
-      'Unable to connect'
-      'The remote name could not be resolved'
-      'Choco pack failed with exit code 1'                  # https://github.com/chocolatey/chocolatey-coreteampackages/issues/721
-      'The operation has timed out'
-      'Internal Server Error'
-      'An exception occurred during a WebClient request'
-      'remote session failed with an unexpected state'
+    'Could not create SSL/TLS secure channel'             # https://github.com/chocolatey/chocolatey-coreteampackages/issues/718
+    'Could not establish trust relationship'              # -||-
+    'Unable to connect'
+    'The remote name could not be resolved'
+    'Choco pack failed with exit code 1'                  # https://github.com/chocolatey/chocolatey-coreteampackages/issues/721
+    'The operation has timed out'
+    'Internal Server Error'
+    'An exception occurred during a WebClient request'
+    'remote session failed with an unexpected state'
+    'The connection was closed unexpectedly.'
     )
     #RepeatSleep   = 250                                    #How much to sleep between repeats in seconds, by default 0
     #RepeatCount   = 2                                      #How many times to repeat on errors, by default 1
