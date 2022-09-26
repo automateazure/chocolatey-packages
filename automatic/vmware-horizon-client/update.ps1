@@ -52,7 +52,7 @@ function global:au_GetLatest {
 
   $productHeaderUrl = "https://my.vmware.com/channel/public/api/v1.0/products/getProductHeader?locale=en_US&category=desktop_end_user_computing&product=vmware_horizon_clients&version=$($productVersion)"
 
-  $jsonProductHeader = Invoke-WebRequest -Uri $productHeaderUrl | ConvertFrom-Json
+  $jsonProductHeader = Invoke-WebRequest -UseBasicParsing -Uri $productHeaderUrl | ConvertFrom-Json
 
   foreach ( $id in $jsonProductHeader.versions.id ) {
     $streams.Add( $id, ( CreateStream $id ) )
