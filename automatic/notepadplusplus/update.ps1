@@ -1,4 +1,5 @@
 import-module au
+import-module au-wormies-helpers
 
 
 function global:au_SearchReplace {
