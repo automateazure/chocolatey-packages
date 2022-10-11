@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>PowerBI</id>
+    <version>2.109.1021.0</version>
+    <packageSourceUrl>https://github.com/cporteou/ChocolateyPackages/tree/master/PowerBI</packageSourceUrl>
+    <owners>Craig Porteous</owners>
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>Power BI Desktop</title>
+    <authors>Microsoft</authors>
+    <projectUrl>https://powerbi.microsoft.com/desktop</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/cporteou/ChocolateyPackages@fb819d47656bcdccf72fa7902b8094709fa324ca/PowerBI/PowerBI.png</iconUrl>
+    <licenseUrl>https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <docsUrl>https://docs.microsoft.com/en-us/power-bi/desktop-getting-started</docsUrl>
+    <summary>Create stunning reports and visualizations with Power BI Desktop</summary>
+    <description>Create stunning reports and visualizations with Power BI Desktop. It puts visual analytics at your fingertips with intuitive report authoring. Drag-and-drop to place content exactly where you want it on the flexible and fluid canvas. Quickly discover patterns as you explore a single unified view of linked, interactive visualizations.
+
+### Features:
+
+#### Transform and clean data
+Getting your data ready to analyze can be time-consuming. We’re on a mission to make it much simpler. Try the data shaping and modeling capabilities of Power BI Desktop and take back hours in your busy day.
+
+#### Complete analytics life-cycle
+The Power BI Desktop is an elegant end-to-end solution for building analytics. The Desktop has all the capabilities to quickly connect, shape, visualize, and share data insights through Power BI.
+
+#### Design once, view anywhere
+We know you need to get data into the hands of decision makers when and where they need it. Power BI makes publishing and sharing your beautiful interactive reports easy.
+</description>
+    <tags>powerbi power bi desktop data analytics visualize</tags>
+    <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
+  <dependencies>
+    <dependency id="dotnet4.5.2" />
+  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
