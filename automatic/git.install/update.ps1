@@ -1,4 +1,5 @@
 import-module au
+import-module wormies-au-helpers
 
 $domain = 'https://github.com'
 $releases = "$domain/git-for-windows/git/releases/latest"
