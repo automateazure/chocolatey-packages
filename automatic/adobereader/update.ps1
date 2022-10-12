@@ -3,8 +3,8 @@ import-module au
 function global:au_GetLatest {
    # Discover the latest release version
    $VersionURL  = 'https://helpx.adobe.com/acrobat/release-note/release-notes-acrobat-reader.html'
-   $download_page = Invoke-WebRequest -Uri $VersionURL #-UseBasicParsing -DisableKeepAlive
-   $ReleaseText = $download_page.links | 
+   $download_page = Invoke-WebRequest -Uri $VersionURL -UseBasicParsing -DisableKeepAlive
+   $ReleaseText = $download_page.links |
                      Where-Object {$_.innertext -match 'DC.*\([0-9.]+\)'} |
                      Select-Object -ExpandProperty innertext -First 1
    $Release = $ReleaseText -replace '.*\(([0-9.]+)\).*','$1'
@@ -23,7 +23,7 @@ function global:au_GetLatest {
 
    # Find the most-recent EXE
    $FTPpage = Invoke-WebRequest -Uri $FTPbase -UseBasicParsing -DisableKeepAlive
-   $Folders = $FTPpage.rawcontent -split '[\r\n]' | 
+   $Folders = $FTPpage.rawcontent -split '[\r\n]' |
                   Where-Object {$_ -match '>\d+<'} |
                   ForEach-Object {$_ -replace '.*>(\d+)<.*','$1'} |
                   Sort-Object -Descending
@@ -36,7 +36,7 @@ function global:au_GetLatest {
    }
    $MUIstub = $EXEstub -replace 'en_US','MUI'
 
-   return  @{ 
+   return  @{
        Version   = $version
        URL32     = "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/$MUIstub"
        MUIMSPurl = "$FTPbase/$MUIMSPstub"
@@ -50,7 +50,7 @@ function global:au_SearchReplace {
          "(^[$]MUIchecksum\s*=\s*)('.*')"    = "`$1'$($Latest.Checksum32)'"
          "(^[$]MUImspURL\s*=\s*)('.*')"      = "`$1'$($Latest.MUIMSPurl)'"
          "(^[$]MUImspChecksum\s*=\s*)('.*')" = "`$1'$($Latest.MUImspChecksum)'"
-      } 
+      }
    }
 }
 

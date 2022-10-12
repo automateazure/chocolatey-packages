@@ -2,7 +2,7 @@ Import-module au
 
 function global:au_GetLatest {
    $MainURL = 'https://powerbi.microsoft.com/en-us/desktop/'
-   $MainPage = Invoke-WebRequest -Uri $MainURL
+   $MainPage = Invoke-WebRequest -Uri $MainURL -UseBasicParsing
    $DownloadURL = $MainPage.links | ? {$_.innertext -match 'language options'} | select -ExpandProperty href
    $DownloadPage = Invoke-WebRequest -Uri $DownloadURL -UseBasicParsing
    $version = $DownloadPage -split '</?p>' | ? {$_ -match '^[0-9.]+$'}
@@ -18,7 +18,7 @@ function global:au_GetLatest {
    $URL32 = $confirmpage.rawcontent.split('"') | ? {$_ -match 'setup.exe$'} | select -first 1
    $url64 = $confirmpage.rawcontent.split('"') | ? {$_ -match 'x64.exe$'} | select -first 1
 
-   return @{ 
+   return @{
             Version  = $Version
             URL32    = $URL32
             URL64    = $URL64
