@@ -3,7 +3,7 @@ import-module au
 function global:au_GetLatest {
    # Discover the latest release version
    $VersionURL  = 'https://helpx.adobe.com/acrobat/release-note/release-notes-acrobat-reader.html'
-   $download_page = Invoke-WebRequest -Uri $VersionURL -UseBasicParsing -DisableKeepAlive
+   $download_page = Invoke-WebRequest -UseBasicParsing -Uri $VersionURL #-UseBasicParsing -DisableKeepAlive
    $ReleaseText = $download_page.links |
                      Where-Object {$_.innertext -match 'DC.*\([0-9.]+\)'} |
                      Select-Object -ExpandProperty innertext -First 1
@@ -13,7 +13,7 @@ function global:au_GetLatest {
 
    # Find the MSP for the latest version
    $FTPbase = 'ftp://ftp.adobe.com/pub/adobe/reader/win/AcrobatDC'
-   $MSPpage = Invoke-WebRequest -Uri "$FTPbase/$ReleaseFolder" -UseBasicParsing -DisableKeepAlive
+   $MSPpage = Invoke-WebRequest -UseBasicParsing -Uri "$FTPbase/$ReleaseFolder" -DisableKeepAlive
    $MUIMSPstub = $MSPpage.rawcontent -split '"' |
                   Where-Object {$_ -match 'MUI\.msp$'} |
                   Select-Object -First 1
@@ -22,13 +22,13 @@ function global:au_GetLatest {
                   Select-Object -First 1
 
    # Find the most-recent EXE
-   $FTPpage = Invoke-WebRequest -Uri $FTPbase -UseBasicParsing -DisableKeepAlive
+   $FTPpage = Invoke-WebRequest -UseBasicParsing -Uri $FTPbase
    $Folders = $FTPpage.rawcontent -split '[\r\n]' |
                   Where-Object {$_ -match '>\d+<'} |
                   ForEach-Object {$_ -replace '.*>(\d+)<.*','$1'} |
                   Sort-Object -Descending
    foreach ($folder in $Folders) {
-      $FolderFiles = Invoke-WebRequest -Uri "$FTPbase/$folder" -UseBasicParsing -DisableKeepAlive
+      $FolderFiles = Invoke-WebRequest -UseBasicParsing -Uri "$FTPbase/$folder"
       $EXEstub = $FolderFiles.rawcontent -split '"' |
                      Where-Object {$_ -match 'en_US\.exe$'} |
                      Select-Object -First 1
@@ -58,6 +58,6 @@ function global:au_BeforeUpdate() {
    $Latest.MUImspChecksum = Get-RemoteChecksum $Latest.MUIMSPurl
 }
 
-Update-Package -NoCheckChocoVersion
+Update-Package -NoCheckChocoVersion -ChecksumFor none
 
 
