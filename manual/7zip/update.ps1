@@ -12,7 +12,7 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
-  $download_page = Invoke-WebRequest -UseBasicParsing -Uri $releases
+  $download_page = Invoke-WebRequest $releases -UseBasicParsing
 
   $streams = @{}
 

@@ -10,7 +10,7 @@ $Options = [ordered]@{
     Timeout       = 100                                     #Connection timeout in seconds
     UpdateTimeout = 1200                                    #Update timeout in seconds
     Threads       = 10                                      #Number of background jobs to use
-    Push          = $Env:au_Push -eq 'true'                #Push to chocolatey
+    Push          = $Env:au_Push -eq 'true'                 #Push to chocolatey
     PushAll       = $true                                   #Allow to push multiple packages at once
     PluginPath    = ''                                      #Path to user plugins
     IgnoreOn      = @(                                      #Error message parts to set the package ignore status
@@ -97,9 +97,16 @@ $Options = [ordered]@{
              }
            } else {}
 
-    ForcedPackages = $ForcedPackages -split ' '
-    BeforeEach = {
+   ForcedPackages = $ForcedPackages -split ' '
+   UpdateIconScript = "$PSScriptRoot\scripts\Update-IconUrl.ps1"
+   UpdatePackageSourceScript = "$PSScriptRoot\scripts\Update-PackageSourceUrl.ps1"
+   ModulePaths = @("$PSScriptRoot\scripts\au_extensions.psm1"; "Wormies-AU-Helpers")
+   BeforeEach = {
         param($PackageName, $Options )
+        $Options.ModulePaths | % { Import-Module $_ }
+        . $Options.UpdateIconScript $PackageName.ToLowerInvariant() -Quiet -ThrowErrorOnIconNotFound
+        . $Options.UpdatePackageSourceScript $PackageName.ToLowerInvariant() -Quiet
+        if (Test-Path tools) { Expand-Aliases -Directory tools }
 
         $pattern = "^${PackageName}(?:\\(?<stream>[^:]+))?(?:\:(?<version>.+))?$"
         $p = $Options.ForcedPackages | ? { $_ -match $pattern }
@@ -113,7 +120,6 @@ $Options = [ordered]@{
 
 if ($ForcedPackages) { Write-Host "FORCED PACKAGES: $ForcedPackages" }
 $global:au_Root         = $Root          #Path to the AU packages
-$global:au_GalleryUrl   = ''             #URL to package gallery, leave empty for Chocolatey Gallery
 $global:info = updateall -Name $Name -Options $Options
 
 #Uncomment to fail the build on AppVeyor on any package error
