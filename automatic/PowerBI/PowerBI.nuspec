@@ -5,13 +5,13 @@
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>PowerBI</id>
     <version>2.109.1021.0</version>
-    <packageSourceUrl>https://github.com/cporteou/ChocolateyPackages/tree/master/PowerBI</packageSourceUrl>
+    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages-template/tree/master/automatic/powerbi</packageSourceUrl>
     <owners>Craig Porteous</owners>
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <title>Power BI Desktop</title>
     <authors>Microsoft</authors>
     <projectUrl>https://powerbi.microsoft.com/desktop</projectUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/cporteou/ChocolateyPackages@fb819d47656bcdccf72fa7902b8094709fa324ca/PowerBI/PowerBI.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages-template@63857e34f7ffaf6149ece3cc8c6d0b7bf9731428/icons/PowerBI.png</iconUrl>
     <licenseUrl>https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <docsUrl>https://docs.microsoft.com/en-us/power-bi/desktop-getting-started</docsUrl>

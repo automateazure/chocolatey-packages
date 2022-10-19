@@ -8,7 +8,7 @@
     <owners>Microsoft</owners>
     <licenseUrl>https://github.com/Azure/azure-cli/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/azure/azure-cli/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/peterjohnsonme/chocolatey-packages/master/azure-cli/azure-cli-logo.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages-template@a37aeb39ac585594646ff8aadfc6bb72f6b2562f/icons/azure-cli-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 If you are submitting packages to the community feed (https://community.chocolatey.org)
@@ -145,7 +145,7 @@ The following are experimental or use not recommended:
     <summary>The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources.</summary>
     <releaseNotes>https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?view=azure-cli-latest</releaseNotes>
     <tags>azurecli cli admin azure</tags>
-    <packageSourceUrl>https://github.com/peterjohnsonme/chocolatey-packages/tree/master/azure-cli</packageSourceUrl>
+    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages-template/tree/master/automatic/azure-cli</packageSourceUrl>
     <docsUrl>https://docs.microsoft.com/en-us/cli/azure/install-azure-cli</docsUrl>
   </metadata>
 </package>

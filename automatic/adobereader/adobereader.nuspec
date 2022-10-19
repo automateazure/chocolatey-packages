@@ -4,13 +4,13 @@
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>adobereader</id>
     <version>2022.002.20191</version>
-    <packageSourceUrl>https://github.com/open-circle-ltd/chocolatey.adobe-acrobat-reader-dc</packageSourceUrl>
+    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages-template/tree/master/automatic/adobereader</packageSourceUrl>
     <owners>Open Circle AG, Simon Bärlocher</owners>
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <title>Adobe Acrobat Reader DC</title>
     <authors>Adobe</authors>
     <projectUrl>https://www.adobe.com/products/reader.html</projectUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/open-circle-ltd/chocolatey.adobe-acrobat-reader-dc@c664e708a2c812f1da6cf3ef26f03fe56341dcc7/icon/adobe-acrobat-reader-dc.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages-template@a29fa0531b6152c89cbad2843f0542102d85f375/icons/adobe-acrobat-reader-dc.png</iconUrl>
     <copyright>Copyright © 1984-2018 Adobe Systems Incorporated and its licensors</copyright>
     <licenseUrl>http://www.adobe.com/products/eulas/pdfs/Reader10_combined-20100625_1419.pdf</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>

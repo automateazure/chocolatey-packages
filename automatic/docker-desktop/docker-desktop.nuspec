@@ -4,12 +4,12 @@
   <metadata>
     <id>docker-desktop</id>
     <version>4.12.0</version>
-    <packageSourceUrl>https://github.com/riezebosch/BoxstarterPackages/</packageSourceUrl>
+    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages-template/tree/master/automatic/docker-desktop</packageSourceUrl>
     <owners>riezebosch</owners>
     <title>Docker Desktop</title>
     <authors>Docker Inc.</authors>
     <projectUrl>https://www.docker.com/products/docker-desktop</projectUrl>
-    <iconUrl>http://cdn.rawgit.com/riezebosch/BoxstarterPackages/master/docker-for-windows/docker.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages-template@6a6d4c87c1a19d333061c9685e0b9347760dc759/icons/docker.png</iconUrl>
     <licenseUrl>https://www.docker.com/legal/docker-subscription-service-agreement</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <tags>docker-for-windows docker-desktop docker admin</tags>

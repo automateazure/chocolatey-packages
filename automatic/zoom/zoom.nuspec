@@ -4,7 +4,7 @@
   <metadata>
     <id>zoom</id>
     <version>5.12.2.9281</version>
-    <packageSourceUrl>https://github.com/mikecole/chocolatey-packages</packageSourceUrl>
+    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages-template/tree/master/automatic/zoom</packageSourceUrl>
     <owners>Mike Cole</owners>
     <title>Zoom Client for Meetings</title>
     <authors>Zoom Video Communications, Inc.</authors>
@@ -145,7 +145,7 @@ The following are experimental or use not recommended:
 
 ]]></description>
     <summary>Zoom unifies cloud video conferencing, simple online meetings, group messaging, and a software-defined conference room solution into one easy-to-use platform.</summary>
-    <iconUrl>https://cdn.staticaly.com/gh/mikecole/chocolatey-packages/master/icons/zoom.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages-template@a29fa0531b6152c89cbad2843f0542102d85f375/icons/zoom.png</iconUrl>
     <docsUrl>https://support.zoom.us/hc/en-us</docsUrl>
     <licenseUrl>http://zoom.us/pricing</licenseUrl>
     <bugTrackerUrl>https://support.zoom.us/hc/en-us/requests/new</bugTrackerUrl>

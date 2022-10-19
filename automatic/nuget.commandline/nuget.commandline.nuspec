@@ -18,12 +18,12 @@ This package contains **preview** and **released** and **recommended** versions.
     <projectUrl>https://github.com/NuGet/NuGet.Client</projectUrl>
     <tags>nuget dot.net microsoft foss cross-platform</tags>
     <copyright>© .NET Foundation. All rights reserved.</copyright>
-    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages@27f780622b37514680f86c7f5e5f7f9bb0a32fe9/icons/nuget.commandline.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey-community/chocolatey-packages-template@a29fa0531b6152c89cbad2843f0542102d85f375/icons/nuget.commandline.png</iconUrl>
     <licenseUrl>https://raw.githubusercontent.com/NuGet/NuGet.Client/dev/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <docsUrl>https://docs.microsoft.com/en-us/nuget</docsUrl>
     <projectSourceUrl>https://github.com/NuGet/NuGet.Client</projectSourceUrl>
-    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages/tree/master/automatic/nuget.commandline</packageSourceUrl>
+    <packageSourceUrl>https://github.com/chocolatey-community/chocolatey-packages-template/tree/master/automatic/nuget.commandline</packageSourceUrl>
   </metadata>
   <files>
     <file src="legal\**" target="legal" />
